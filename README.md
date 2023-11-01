@@ -39,6 +39,30 @@ In this example, the program will:
 
 This program uses HTTPS connections. Therefore, it's crucial that you correctly configure your HTTPS root certificates. Failure to do so may result in connectivity issues. Please refer to your operating system's documentation or your network administrator for guidance on managing HTTPS root certificates.
 
+## Build
+
+This repository includes a `Makefile` that automates the process of building the application for different architectures with both static and dynamic linking. You need to have `make` and `Go` installed on your machine and make sure you have a `git` versioning system in your project.
+
+To build the application for all architectures and linking types, simply run the following command:
+```
+make
+```
+This will create four output files in the `output` directory:
+
+- `truestudent_network_login_amd64_static`: The application built for the linux/amd64 architecture with static linking.
+- `truestudent_network_login_amd64`: The application built for the linux/amd64 architecture with dynamic linking.
+- `truestudent_network_login_arm64_static`: The application built for the linux/arm architecture with static linking.
+- `truestudent_network_login_arm64`: The application built for the linux/arm architecture with dynamic linking.
+
+If you want to build the application for a specific architecture and linking type, you can run one of the following commands:
+
+```
+make build-linux-amd64-static
+make build-linux-amd64
+make build-linux-arm-static
+make build-linux-arm
+```
+
 ## Support
 
 If you encounter any issues or have any questions about this program, please feel free to open an issue on this repository or contact the developer directly.
